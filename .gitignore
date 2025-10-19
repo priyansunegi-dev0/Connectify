@@ -1,0 +1,4 @@
+frontend/node_modules
+# Ignore node_modules directory in the frontend
+backend/node_modules
+# Ignore node_modules directory in the backend
