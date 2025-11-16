@@ -1,0 +1,668 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* --- NEW PROFESSIONAL & VIBRANT THEME VARIABLES --- */
+:root {
+  --pro-dark-blue: #0a0f2c;
+  --pro-mid-blue: #16213e;
+  --pro-light-blue: #1e2a47;
+  --pro-vibrant-cyan: #00f5ff;
+  --pro-vibrant-magenta: #ff00ff;
+  --glass-background: rgba(22, 33, 62, 0.2);
+  --glass-border: rgba(0, 245, 255, 0.2);
+  --text-primary: rgba(255, 255, 255, 0.95);
+  --text-secondary: rgba(200, 210, 255, 0.7);
+  --shadow-light: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* Main Container */
+.mainContainer {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--pro-dark-blue);
+}
+
+/* ===== PROFESSIONAL & VIBRANT LOBBY ===== */
+
+/* Lobby Container with Animated Grid Background */
+.lobbyContainer {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--pro-dark-blue);
+  background-image:
+    linear-gradient(rgba(0, 245, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 245, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: backgroundGridPan 30s linear infinite;
+  overflow: hidden;
+}
+
+@keyframes backgroundGridPan {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+/* Fading Particles Effect */
+.lobbyContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, transparent, var(--pro-dark-blue) 70%);
+  z-index: 1;
+}
+
+/* Clean Glassmorphism Content Box */
+.lobbyContent {
+  position: relative;
+  z-index: 10;
+  padding: 3rem;
+  background: var(--glass-background);
+  backdrop-filter: blur(25px) saturate(150%);
+  -webkit-backdrop-filter: blur(25px) saturate(150%);
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-strong);
+  max-width: 460px;
+  width: 90%;
+  text-align: center;
+  animation: contentFadeIn 1s ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Professional & Clean Typography */
+.lobbyTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-shadow: 0 0 15px rgba(0, 245, 255, 0.4);
+  animation: titleGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  from {
+    text-shadow: 0 0 15px rgba(0, 245, 255, 0.4);
+  }
+  to {
+    text-shadow: 0 0 25px rgba(0, 245, 255, 0.7);
+  }
+}
+
+.lobbySubtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Input Container */
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Modern Text Field */
+.usernameInput :global(.MuiOutlinedInput-root) {
+  background-color: rgba(10, 15, 44, 0.5) !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.usernameInput :global(.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline) {
+  border-color: var(--pro-vibrant-cyan) !important;
+}
+
+.usernameInput :global(.MuiOutlinedInput-notchedOutline) {
+  border-color: rgba(0, 245, 255, 0.3) !important;
+  border-width: 1px !important;
+  border-radius: 12px !important;
+}
+
+.usernameInput :global(.MuiInputLabel-root) {
+  color: var(--text-secondary) !important;
+}
+
+.usernameInput :global(.MuiOutlinedInput-input) {
+  color: var(--text-primary) !important;
+}
+
+/* Vibrant Connect Button */
+.connectButton {
+  background: linear-gradient(90deg, var(--pro-vibrant-cyan) 0%, var(--pro-vibrant-magenta) 100%) !important;
+  padding: 12px 20px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  text-transform: none !important;
+  border-radius: 12px !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+  color: white !important;
+  box-shadow: 0 8px 25px rgba(0, 245, 255, 0.3) !important;
+}
+
+.connectButton:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 12px 30px rgba(255, 0, 255, 0.4) !important;
+}
+
+.connectButton:disabled {
+  opacity: 0.5 !important;
+  transform: none !important;
+  box-shadow: none !important;
+  cursor: not-allowed !important;
+  background: var(--pro-light-blue) !important;
+}
+
+/* Clean Video Preview */
+.videoPreview {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-light);
+}
+
+.previewVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1); /* Mirror effect */
+}
+
+
+/* ===== PROFESSIONAL BLUE MEETING ROOM STYLES ===== */
+
+/* Meeting Room Container */
+.meetVideoContainer {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--pro-dark-blue);
+  background-image:
+    linear-gradient(rgba(0, 245, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 245, 255, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: backgroundGridPan 40s linear infinite;
+  overflow: hidden;
+}
+
+
+.meetVideoContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 15% 25%, rgba(0, 245, 255, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(255, 0, 255, 0.08) 0%, transparent 40%);
+  animation: meetingRoomAmbient 25s infinite ease-in-out;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  z-index: 1;
+}
+
+@keyframes meetingRoomAmbient {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-10px) rotate(0.5deg) scale(1.01);
+    opacity: 0.8;
+  }
+}
+
+/* Professional User Video */
+.meetUserVideo {
+  position: absolute;
+  bottom: 8vh;
+  height: 24vh;
+  width: auto;
+  left: 2rem;
+  border-radius: 24px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2px solid var(--glass-border);
+  box-shadow: var(--shadow-strong);
+  z-index: 12;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.meetUserVideo:hover {
+  transform: scale(1.08) translateY(-8px);
+  border-color: rgba(0, 245, 255, 0.5);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 245, 255, 0.3);
+}
+
+/* Enhanced Button Container */
+.buttonContainers {
+  position: absolute;
+  width: 100vw;
+  bottom: 2.5rem;
+  text-align: center;
+  z-index: 15;
+}
+
+/* REMOVED the ::before pseudo-element that created the background box */
+
+.buttonContainers svg {
+  font-size: 3.2rem;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.4));
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.buttonContainers button {
+  background: rgba(10, 15, 44, 0.4) !important;
+  backdrop-filter: blur(25px) !important;
+  -webkit-backdrop-filter: blur(25px) !important;
+  border: 1px solid var(--glass-border) !important;
+  margin: 0 1rem !important;
+  border-radius: 50% !important;
+  width: 75px !important;
+  height: 75px !important;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: var(--shadow-light) !important;
+}
+
+
+.buttonContainers button:hover {
+  background: rgba(22, 33, 62, 0.6) !important;
+  transform: translateY(-4px) scale(1.08) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(0, 245, 255, 0.5) !important;
+  border-color: rgba(0, 245, 255, 0.6) !important;
+}
+
+/* Enhanced Conference View */
+.conferenceView {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+  z-index: 10;
+  position: relative;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.conferenceView video {
+  width: auto;
+  height: 24vh;
+  min-width: auto;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 2px solid var(--glass-border);
+  box-shadow: var(--shadow-light);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.conferenceView video:hover {
+  transform: scale(1.05) translateY(-4px);
+  border-color: rgba(0, 245, 255, 0.4);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 10px rgba(0, 245, 255, 0.2);
+}
+
+/* Professional Chat Room */
+.chatRoom {
+  position: absolute;
+  height: 86vh;
+  right: 2rem;
+  top: 2rem;
+  background: var(--glass-background);
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
+  border-radius: 28px;
+  width: 30vw;
+  padding: 30px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-strong);
+  z-index: 12;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.chatRoom:hover {
+  border-color: rgba(0, 245, 255, 0.3);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 245, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Class to hide the chat room */
+.chatRoom.hidden {
+  transform: translateX(calc(100% + 4rem));
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Close button for chat */
+.closeChatButton {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 15;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.closeChatButton:hover {
+  color: var(--text-primary);
+  transform: scale(1.1) rotate(90deg);
+}
+
+
+.chatContainer {
+  position: relative;
+  height: 100%;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  /* Added overflow hidden to ensure children control scrolling */
+  overflow: hidden;
+}
+
+.chatContainer h1 {
+  color: var(--text-primary);
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  flex-shrink: 0;
+  padding-right: 40px; /* Add space for the close button */
+}
+
+/* FIXED CHAT SCROLLING */
+.chattingDisplay {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 15px;
+  /* Removed margin-bottom which caused layout issues */
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem; /* Added padding for spacing */
+}
+
+.chattingDisplay::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chattingDisplay::-webkit-scrollbar-track {
+  background: rgba(0, 245, 255, 0.08);
+  border-radius: 4px;
+}
+
+.chattingDisplay::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--pro-vibrant-cyan), var(--pro-vibrant-magenta));
+  border-radius: 4px;
+}
+
+.chattingDisplay::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #00f5ff, #c300ff);
+}
+
+/* --- Corrected iOS Style Chat Messages --- */
+.message-container {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 15px;
+  max-width: 85%;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid var(--glass-border);
+}
+
+.message-bubble {
+  padding: 12px 18px;
+  border-radius: 22px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.message-bubble strong {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Sender (You) - Aligned to the right */
+.sender {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.sender .profile-pic {
+  margin-left: 10px;
+  background-image: url('https://res.cloudinary.com/doafxs9ku/image/upload/v1760852156/8a384f86-56ab-47fa-996d-f932e9c981f1_yambdw.jpg');
+}
+
+.sender .message-bubble {
+  background: #007aff;
+  color: white;
+  border-bottom-right-radius: 6px;
+}
+
+/* Receiver & AI (Them) - Aligned to the left */
+.receiver,
+.ai {
+  align-self: flex-start;
+}
+
+.receiver .profile-pic {
+  margin-right: 10px;
+  background-image: url('https://res.cloudinary.com/doafxs9ku/image/upload/v1760852328/Profile_bjtt8k.png');
+}
+
+.receiver .message-bubble {
+  background: var(--pro-light-blue);
+  color: var(--text-primary);
+  border-bottom-left-radius: 6px;
+}
+
+.ai .profile-pic {
+  margin-right: 10px;
+  background-image: url('https://res.cloudinary.com/doafxs9ku/image/upload/v1757878769/happy-robot-3d-ai-character-600nw-2464455965_w6k8oe.webp');
+  border: 2px solid var(--pro-vibrant-cyan);
+}
+
+.ai .message-bubble {
+  background: transparent;
+  border: 1px solid var(--pro-vibrant-cyan);
+  color: var(--text-primary);
+  border-bottom-left-radius: 6px;
+}
+
+.ai .message-bubble strong {
+  color: var(--pro-vibrant-cyan);
+}
+
+/* FIXED TEXTBOX POSITION */
+.chattingArea {
+  position: relative;
+  background: var(--pro-light-blue);
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  padding: 18px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  box-shadow: var(--shadow-light);
+  flex-shrink: 0;
+  /* Removed margin-top: auto; Flexbox handles positioning */
+}
+
+.chattingArea .MuiTextField-root {
+  flex: 1;
+}
+
+.chattingArea .MuiOutlinedInput-root {
+  color: white !important;
+  background: var(--pro-dark-blue) !important;
+  border-radius: 14px !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.chattingArea .MuiOutlinedInput-notchedOutline {
+  border-color: var(--glass-border) !important;
+}
+
+.chattingArea .MuiInputLabel-root {
+  color: var(--text-secondary) !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.chattingArea button {
+  background: linear-gradient(135deg, var(--pro-vibrant-cyan) 0%, var(--pro-vibrant-magenta) 100%) !important;
+  border-radius: 14px !important;
+  padding: 14px 24px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  border: none !important;
+  box-shadow: 0 8px 25px rgba(0, 245, 255, 0.2) !important;
+}
+
+.chattingArea button:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 12px 30px rgba(255, 0, 255, 0.3) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .lobbyContent {
+    padding: 2.5rem;
+    max-width: 520px;
+  }
+
+  .lobbyTitle {
+    font-size: 2.8rem;
+  }
+
+  .chatRoom {
+    width: 35vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .lobbyContent {
+    padding: 2rem;
+    max-width: 480px;
+  }
+
+  .lobbyTitle {
+    font-size: 2.4rem;
+  }
+
+  .lobbySubtitle {
+    font-size: 1.2rem;
+  }
+
+  .videoPreview {
+    width: 300px;
+    height: 200px;
+  }
+
+  .chatRoom {
+    width: 90vw;
+    height: 70vh;
+    right: 5vw;
+    top: 5vh;
+  }
+
+  .buttonContainers button {
+    width: 65px !important;
+    height: 65px !important;
+    margin: 0 0.5rem !important;
+  }
+
+  .meetUserVideo {
+    left: 1rem;
+    height: 20vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .lobbyContent {
+    padding: 1.5rem;
+  }
+
+  .lobbyTitle {
+    font-size: 2rem;
+  }
+
+  .inputContainer {
+    gap: 2rem;
+  }
+
+  .videoPreview {
+    width: 280px;
+    height: 180px;
+  }
+}
+
